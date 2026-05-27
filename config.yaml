@@ -1,0 +1,122 @@
+# NexusTrader Configuration
+# Multi-market AI Trading System
+
+# ─── API KEYS ────────────────────────────────────────────────────────────────
+api_keys:
+  deepseek: ""          # https://platform.deepseek.com (free tier)
+  alpha_vantage: ""     # https://alphavantage.co (free tier)
+  telegram_bot: ""      # optional: alertes Telegram
+  telegram_chat_id: ""
+
+# ─── EXCHANGES ───────────────────────────────────────────────────────────────
+exchanges:
+  crypto:
+    name: "binance"     # binance, bybit, kraken, kucoin
+    api_key: ""
+    secret: ""
+    sandbox: true       # true = paper trading
+  forex:
+    provider: "yfinance"  # yfinance (gratuit) ou oanda
+
+# ─── MARCHÉS ─────────────────────────────────────────────────────────────────
+markets:
+  crypto:
+    enabled: true
+    symbols:
+      - "BTC/USDT"
+      - "ETH/USDT"
+      - "SOL/USDT"
+      - "BNB/USDT"
+    timeframe: "1h"
+
+  stocks:
+    enabled: true
+    symbols:
+      - "SPY"    # S&P 500 ETF
+      - "QQQ"    # NASDAQ ETF
+      - "AAPL"
+      - "TSLA"
+      - "NVDA"
+    timeframe: "1d"
+
+  forex:
+    enabled: true
+    symbols:
+      - "EURUSD=X"
+      - "GBPUSD=X"
+      - "USDJPY=X"
+      - "AUDUSD=X"
+      - "USDCHF=X"
+    timeframe: "1h"
+
+  commodities:
+    enabled: true
+    symbols:
+      - "GC=F"    # Gold Futures (XAUUSD)
+      - "SI=F"    # Silver
+      - "CL=F"    # Crude Oil
+    timeframe: "1h"
+
+# ─── STRATÉGIE ───────────────────────────────────────────────────────────────
+strategy:
+  mode: "paper"           # paper | live | backtest
+  min_confidence: 0.65    # score minimum pour trader (0-1)
+
+  # Poids des signaux (doivent sommer à 1.0)
+  signal_weights:
+    technical: 0.35
+    sentiment: 0.25
+    llm_reasoning: 0.40
+
+# ─── GESTION DU RISQUE ───────────────────────────────────────────────────────
+risk:
+  max_position_pct: 0.05      # max 5% du capital par trade
+  max_drawdown_pct: 0.15      # stop système si -15% drawdown
+  max_open_positions: 8
+  stop_loss_pct: 0.02         # stop-loss 2%
+  take_profit_pct: 0.04       # take-profit 4% (ratio 1:2)
+  trailing_stop: false
+  daily_loss_limit_pct: 0.05  # stop trading si -5% sur la journée
+
+# ─── BACKTESTING ─────────────────────────────────────────────────────────────
+backtest:
+  start_date: "2023-01-01"
+  end_date: "2024-12-31"
+  initial_capital: 10000      # USD
+  commission: 0.001           # 0.1% par trade
+
+# ─── MODÈLES IA ──────────────────────────────────────────────────────────────
+models:
+  llm:
+    provider: "deepseek"      # deepseek | ollama | openai
+    model: "deepseek-chat"    # deepseek-chat | llama3.3 | gpt-4o
+    temperature: 0.1          # bas = plus déterministe
+    max_tokens: 1000
+    ollama_base_url: "http://localhost:11434"  # si ollama local
+
+  sentiment:
+    model: "ProsusAI/finbert"  # FinBERT HuggingFace
+    device: "cpu"              # cpu | cuda | mps
+    batch_size: 32
+
+# ─── NEWS & DONNÉES ──────────────────────────────────────────────────────────
+data:
+  news_sources:
+    - "https://feeds.finance.yahoo.com/rss/2.0/headline?s={symbol}&region=US&lang=en-US"
+    - "https://cryptopanic.com/api/v1/posts/?auth_token=free&currencies=BTC,ETH"
+  lookback_days: 30
+  cache_ttl_minutes: 5
+
+# ─── DASHBOARD ───────────────────────────────────────────────────────────────
+dashboard:
+  host: "0.0.0.0"
+  port: 8501
+  refresh_seconds: 30
+  theme: "dark"
+
+# ─── LOGS ────────────────────────────────────────────────────────────────────
+logging:
+  level: "INFO"         # DEBUG | INFO | WARNING | ERROR
+  file: "logs/nexus.log"
+  max_mb: 50
+  backup_count: 5
