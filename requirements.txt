@@ -1,0 +1,47 @@
+# NexusTrader Dependencies
+
+# ─── DATA ────────────────────────────────────────────────────────────────────
+ccxt>=4.3.0
+yfinance>=0.2.40
+pandas>=2.2.0
+numpy>=1.26.0
+requests>=2.31.0
+aiohttp>=3.9.0
+feedparser>=6.0.11
+
+# ─── ANALYSE TECHNIQUE ───────────────────────────────────────────────────────
+pandas-ta>=0.3.14b
+vectorbt>=0.26.2
+ta>=0.11.0
+
+# ─── IA / ML ─────────────────────────────────────────────────────────────────
+transformers>=4.40.0
+torch>=2.3.0
+openai>=1.30.0          # SDK compatible DeepSeek + OpenAI
+crewai>=0.67.0
+langchain>=0.2.0
+langchain-community>=0.2.0
+sentence-transformers>=3.0.0
+
+# ─── BACKTESTING ─────────────────────────────────────────────────────────────
+# vectorbt déjà listé ci-dessus
+
+# ─── DASHBOARD ───────────────────────────────────────────────────────────────
+streamlit>=1.36.0
+plotly>=5.22.0
+altair>=5.3.0
+
+# ─── UTILS ───────────────────────────────────────────────────────────────────
+pyyaml>=6.0.1
+python-dotenv>=1.0.1
+loguru>=0.7.2
+schedule>=1.2.2
+asyncio-throttle>=1.0.2
+tenacity>=8.3.0         # retry logic
+
+# ─── NOTIFICATIONS ───────────────────────────────────────────────────────────
+python-telegram-bot>=21.3
+
+# ─── TESTS ───────────────────────────────────────────────────────────────────
+pytest>=8.2.0
+pytest-asyncio>=0.23.0
