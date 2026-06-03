@@ -1,0 +1,31 @@
+{
+  "recommendations": [
+    // ─── Python core ──────────────────────────────────────────────────────
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.black-formatter",
+    "charliermarsh.ruff",
+    "ms-python.isort",
+
+    // ─── Data / Notebooks ─────────────────────────────────────────────────
+    "ms-toolsai.jupyter",
+    "ms-toolsai.vscode-jupyter-slideshow",
+
+    // ─── Config & Data formats ────────────────────────────────────────────
+    "redhat.vscode-yaml",
+    "tamasfe.even-better-toml",
+
+    // ─── Git & collaboration ──────────────────────────────────────────────
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+
+    // ─── Productivity ─────────────────────────────────────────────────────
+    "usernamehw.errorlens",
+    "streetsidesoftware.code-spell-checker",
+    "aaron-bond.better-comments",
+    "gruntfuggly.todo-tree",
+
+    // ─── Docker (for containerised deployments) ───────────────────────────
+    "ms-azuretools.vscode-docker"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "folders": [
+    {
+      "name": "NexusTrader",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "${workspaceFolder:NexusTrader}/.venv/bin/python",
+    "python.terminal.activateEnvironment": true,
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": ["tests"],
+    "editor.rulers": [100],
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/*.pyc": true,
+      "**/.pytest_cache": true,
+      "**/.ruff_cache": true,
+      "**/.venv": true
+    },
+    "terminal.integrated.env.linux": {
+      "PYTHONPATH": "${workspaceFolder:NexusTrader}"
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "ms-python.black-formatter",
+      "charliermarsh.ruff",
+      "ms-python.isort",
+      "ms-toolsai.jupyter",
+      "redhat.vscode-yaml",
+      "eamodio.gitlens",
+      "usernamehw.errorlens",
+      "gruntfuggly.todo-tree"
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": []
+  }
+}
